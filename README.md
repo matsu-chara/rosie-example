@@ -7,4 +7,5 @@ example repository for
 
 ```sh
 $ cat vers | rosie  -f myver.rpl match -o subs  '{{myver.myver}}'
+$ rosie test myver.rpl
 ```
