@@ -4,8 +4,17 @@ package myver
 
 local alias numeric = [0] / { [1-9] [:digit:]* }
 
+-- test major accepts "0", "10", "99"
+-- test major rejects "01", "1.2"
 major = numeric
 minor = numeric
+
+-- test prerelease accepts "alpha1", "1"
+-- test prerelease rejects "beta1.2", "1.2"
 prerelease = [[:alnum:]]+
 
+-- test myver accepts "3.52", "1.2-alpha2", "1.3-b"
+-- test myver rejects "12.01", "1" "2.3.4", "1.4-"
+-- test myver includes prerelease "1.2-alpha2"
+-- test myver excludes prerelease "1.2"
 myver = { major "." minor {"-" prerelease}? }
