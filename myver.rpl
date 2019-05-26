@@ -1,0 +1,11 @@
+package myver
+
+-- version like semver but less feature
+
+local alias numeric = [0] / { [1-9] [:digit:]* }
+
+major = numeric
+minor = numeric
+prerelease = [[:alnum:]]+
+
+myver = { major "." minor {"-" prerelease}? }
